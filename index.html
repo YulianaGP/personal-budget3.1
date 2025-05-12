@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Control de Ingresos y Egresos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 font-sans p-5 min-h-screen">
 
+  <h1 class="text-center text-3xl font-bold text-gray-800 dark:text-white mb-8">
+    Control de Ingresos y Egresos
+  </h1>
+
+  <form id="formulario" class="flex flex-col gap-4 max-w-md mx-auto bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+    <input type="text" name="descripcion" placeholder="Nombre del gasto o ingreso" required
+      class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring focus:ring-blue-400 dark:bg-gray-700 dark:text-white" />
+    
+    <input type="number" name="monto" placeholder="Monto" required
+      class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring focus:ring-blue-400 dark:bg-gray-700 dark:text-white" />
+    
+    <select name="tipo" required
+      class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
+      <option value="" disabled selected>Tipo</option>
+      <option value="ingreso">Ingreso</option>
+      <option value="egreso">Egreso</option>
+    </select>
+
+    <button type="submit"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition">
+      Registrar
+    </button>
+  </form>
+
+  <div id="balance" class="text-center mt-6 text-xl font-semibold text-gray-700 dark:text-gray-200">
+    Balance: $0.00
+  </div>
+
+  <div class="overflow-x-auto mt-8">
+    <table class="w-full border-collapse bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+      <thead class="bg-gray-800 text-white">
+        <tr>
+          <th class="px-4 py-2">Fecha</th>
+          <th class="px-4 py-2">Nombre</th>
+          <th class="px-4 py-2">Monto</th>
+          <th class="px-4 py-2">Tipo</th>
+          <th class="px-4 py-2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-movimientos" class="text-center">
+        <!-- Movimientos renderizados aquí -->
+      </tbody>
+    </table>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
